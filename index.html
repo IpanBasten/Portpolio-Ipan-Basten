@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ipan Basten - IT Support Analyst Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* =======================================
+           Variabel Warna (DARK MODE POWERFUL)
+           ======================================= */
+        :root {
+            --primary-color: #00e6e6; /* Cyan Cerah/Neon (Powerful Accent) */
+            --secondary-color: #f1f1f1; /* Teks Putih */
+            --background-dark: #1e1e1e; /* Latar Belakang Utama */
+            --background-card: #2c2c2c; /* Latar Belakang Card/Konten */
+            --text-dark: #f1f1f1; /* Teks Putih */
+            --text-light: #1e1e1e;
+            --accent-color: #ff6347; /* Merah/Oranye Terang (Aksen Sekunder) */
+            --padding-section: 60px 20px;
+        }
+
+        /* =======================================
+           Gaya Dasar & Reset
+           ======================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-dark);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* =======================================
+           Navigasi
+           ======================================= */
+        .header {
+            background-color: var(--background-card);
+            box-shadow: 0 4px 10px rgba(0,230,230,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .nav-brand h3 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* =======================================
+           Bagian Hero (Profil Utama)
+           ======================================= */
+        #home {
+            background-color: var(--background-dark); 
+            background-image: linear-gradient(135deg, #121212 0%, #1e1e1e 100%); 
+            color: var(--text-dark);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-picture {
+            width: 140px;
+            height: 140px;
+            background-color: var(--background-card);
+            border-radius: 50%;
+            margin-bottom: 25px;
+            border: 5px solid var(--primary-color); 
+            box-shadow: 0 0 0 8px rgba(0, 230, 230, 0.2);
+            overflow: hidden; /* Penting untuk memotong gambar */
+        }
+        
+        /* CSS Tambahan untuk Gambar di Lingkaran */
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Memastikan gambar mengisi penuh tanpa distorsi */
+            border-radius: 50%; /* Membuat gambar mengikuti bentuk lingkaran */
+            display: block;
+        }
+
+        .profile-content h1 {
+            color: var(--secondary-color);
+            font-size: 3.2em;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .profile-content p.role {
+            font-size: 1.6em;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: var(--accent-color); 
+            border-bottom: 2px solid rgba(241, 241, 241, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            font-size: 1em;
+            gap: 8px;
+            padding: 5px 10px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .contact-info span a {
+             color: var(--secondary-color); 
+             transition: color 0.3s;
+        }
+        
+        .contact-info span:hover {
+            color: var(--primary-color); 
+            transform: translateY(-3px);
+        }
+
+        .contact-info span:hover a {
+             color: var(--primary-color);
+             text-decoration: none;
+        }
+
+        .summary-box {
+            max-width: 900px;
+            background-color: var(--background-card);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 1.1em;
+            border-left: 5px solid var(--accent-color);
+            line-height: 1.8;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
+        /* =======================================
+           Gaya Bagian Konten
+           ======================================= */
+        section {
+            padding: var(--padding-section);
+            background-color: var(--background-dark); 
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+            color: var(--primary-color); 
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Pengalaman Kerja / Education Card Style */
+        .work-entry {
+            background-color: var(--background-card); 
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .work-entry:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,230,230,0.2); 
+        }
+
+        .work-entry h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .work-entry .details {
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            color: #ccc; 
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #444;
+            padding-bottom: 5px;
+        }
+
+        .work-entry ul {
+            padding-left: 20px;
+            list-style: disc;
+            margin-top: 10px;
+        }
+
+        .work-entry ul li {
+            margin-bottom: 8px;
+            color: #ddd;
+        }
+
+        .project-involvement h4 {
+            color: var(--accent-color);
+        }
+
+        /* Keahlian & Pendidikan */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .skill-category h3 {
+            color: var(--accent-color); 
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+
+        .skill-category li {
+            background: #3a3a3a; 
+            color: var(--primary-color); 
+            padding: 8px 15px;
+            margin-bottom: 8px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .footer p a {
+            color: var(--accent-color);
+        }
+
+        /* =======================================
+           Media Queries (Responsif)
+           ======================================= */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+            }
+            .skills-grid {
+                grid-template-columns: 1fr; 
+            }
+            .work-entry .details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <h3>Ipan Basten</h3>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#experience">Pengalaman</a></li>
+                    <li><a href="#skills">Keahlian</a></li>
+                    <li><a href="#education">Pendidikan & Sertifikasi</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container profile-content">
+            <div class="profile-picture">
+                <img src="./img/Ipan.jpg" alt="Ipan Basten Profile Picture">
+            </div>
+            <h1>Ipan Basten</h1>
+            <p class="role">IT Support Analyst</p>
+
+            <div class="contact-info">
+                <span>📞 +6281315869727</span>
+                <span>📧 <a href="mailto:ipanbasten11@gmail.com">ipanbasten11@gmail.com</a></span>
+                <span>🔗 <a href="https://www.linkedin.com/in/ipanbasten/" target="_blank">LinkedIn Profile</a></span>
+            </div>
+
+            <div class="summary-box">
+                <p><strong>Ringkasan:</strong> 10 tahun pengalaman di industri retail. Ahli dalam mengelola dan memelihara infrastruktur IT yang kompleks. Dengan keahlian mendalam dalam <strong>troubleshooting hardware & software, jaringan, dan sistem POS</strong> (LSretail, Seito, Odoo). Mencapai <strong>tingkat resolusi tiket 95%</strong>, berhasil meningkatkan efisiensi operasional dan kepuasan pengguna. Bersemangat untuk terus belajar dan berkontribusi pada inovasi IT retail, terutama dalam implementasi solusi *cloud-based* dan peningkatan keamanan data.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Pengalaman Kerja</h2>
+
+            <div class="work-entry">
+                <div class="details">
+                    <span class="company">PT.Victory Chingluh Indonesia</span>
+                    <span class="date">[Juli 2025 – Present]</span>
+                </div>
+                <h3>IT Hardware Officer</h3>
+                <ul>
+                    <li>Menangani *remote user support* seperti konfigurasi email, instalasi SAP/ERP, dan *troubleshooting* software pendukung.</li>
+                    <li>Melakukan pemeliharaan dan perbaikan *hardware* (laptop, PC, penggantian komponen) dan perangkat jaringan (Unifi WiFi Access Points, Cisco switches, D-Link switches).</li>
+                    <li>Mengkonfigurasi dan memelihara infrastruktur jaringan, termasuk *VLAN setup* dan *trunk configuration*.</li>
+                    <li>Berkolaborasi dengan tim IT untuk memastikan ketersediaan, keandalan, dan keamanan sistem IT perusahaan.</li>
+                </ul>
+            </div>
+
+            <div class="work-entry">
+                <div class="details">
+                    <span class="company">PT.AEON INDONESIA</span>
+                    <span class="date">[Mei 2024 - Juni 2025]</span>
+                </div>
+                <h3>IT OPS Support Junior Officer</h3>
+                <ul>
+                    <li>Bertindak sebagai *Primary Point of Contact* (PIC) untuk operasi IT di tiga toko Aeon dan menyediakan *backup support* untuk semua lokasi.</li>
+                    <li>Mengelola dan memelihara aset IT (POS, PC kantor, printer, server, NVR, CCTV) dan melakukan inventarisasi.</li>
+                    <li>Memberikan dukungan IT *on-site* dan *remote* (*email, shared folders, Active Directory, network, CCTV*).</li>
+                    <li>Memberikan dukungan khusus untuk sistem POS (instalasi, antivirus, konfigurasi scanner/printer/EDC).</li>
+                    <li>Memantau dan mengelola sistem *ticketing*, termasuk pengambilan data penjualan dan manajemen ID kasir.</li>
+                    <li>Mengkonfigurasi email accounts, Microsoft 365, dan POP dengan Multi-Factor Authentication (MFA).</li>
+                </ul>
+                <div class="project-involvement">
+                    <h4>Keterlibatan Proyek (AEON)</h4>
+                    <ul>
+                        <li>Berkontribusi pada pembukaan toko Aeon baru (Ciputra, Pakuwon, Eastvara BSD): Mengkonfigurasi IP, *device naming*, instalasi POS Seito, server integration, dan driver perangkat.</li>
+                        <li>Menyiapkan perangkat HHT, PC, dan laptop untuk kegiatan *bi-annual stocktake*.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="work-entry">
+                <div class="details">
+                    <span class="company">PT.Rumah Mebel Nusantara (IKEA)</span>
+                    <span class="date">[Okt 2023 – Apr 2024]</span>
+                </div>
+                <h3>IT Support Analyst</h3>
+                <ul>
+                    <li>Memberikan dukungan teknis *first-line* via telepon, email, dan *chat*, menyelesaikan masalah *hardware* dan *software* (ERP Microsoft Dynamic Nav).</li>
+                    <li>Mendiagnosis dan *troubleshoot* masalah konektivitas jaringan, memastikan perangkat POS (EDC, UPS) berfungsi.</li>
+                    <li>Mencakup 4 toko IKEA Indonesia, melakukan *daily checkups*, dan memantau server Zabbix.</li>
+                    <li>Mengkonfigurasi perpindahan server (primary/secondary) dan memastikan semua perangkat POS terhubung.</li>
+                    <li>Berkomunikasi dengan IT Service Center di Filipina untuk isu eskalasi ke Dairy Farm Retail Group.</li>
+                </ul>
+                <div class="project-involvement">
+                    <h4>Keterlibatan Proyek (IKEA)</h4>
+                    <ul>
+                        <li>**Saluhallen Project:** Memindahkan peralatan *iconter* dan *sales support* (misalnya penarikan kabel).</li>
+                        <li>**RFID Printer:** Instalasi *driver*, *Set up IP*, registrasi pengguna RFID untuk integrasi.</li>
+                        <li>**UAT Mobile Goodsflow:** Menyiapkan perangkat *mobile goodsflow* agar siap digunakan oleh pengguna.</li>
+                        <li>**Load Balancer:** Bekerja sama dengan tim infrastruktur dan aplikasi.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Keahlian</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>Operating Systems (Windows, macOS)</li>
+                        <li>Hardware Troubleshooting</li>
+                        <li>Network Troubleshooting (Switching, VLAN, Trunk)</li>
+                        <li>Active Directory</li>
+                        <li>Help Desk Ticketing Systems (ServiceNow, Zendesk)</li>
+                        <li>Troubleshoot POS, EDC</li>
+                        <li>Microsoft Office Suite</li>
+                        <li>POS Systems (LSretail, Seito, Odoo)</li>
+                        <li>ERP (SAP/ERP, Microsoft Dynamic Nav)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills & Language</h3>
+                    <ul>
+                        <li>Communication</li>
+                        <li>Problem-solving</li>
+                        <li>Customer Service</li>
+                        <li>Teamwork Critical thinking</li>
+                        <li>Time Management</li>
+                    </ul>
+                    <h3 style="margin-top: 20px;">Language Skills</h3>
+                    <ul>
+                        <li>Indonesia: Native (speak, listen, write and read)</li>
+                        <li>English: Intermediate (listen and read), Basic (write and speak)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Pendidikan & Sertifikasi</h2>
+            
+            <div class="work-entry">
+                <div class="details">
+                    <span class="company">Universitas Pamulang</span>
+                    <span class="date">[2017 – 2021]</span> 
+                </div>
+                <h3>Teknik Informatika</h3>
+                <p style="margin-top: 5px;"><strong>GPA: 3.33</strong></p>
+            </div>
+
+            <h3 style="margin-top: 40px; color: var(--secondary-color);">Sertifikasi Profesional</h3>
+            <p style="font-style: italic; margin-bottom: 20px; color: #ccc;">Menunjukkan komitmen terhadap pengembangan diri di berbagai bidang teknologi.</p>
+            
+            <div class="work-entry" style="border-left: 4px solid var(--accent-color);">
+                <h3>Programming & Web Development</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>• Sanbercode (React JS FrontEnd Web Development)</li>
+                    <li>• Dicoding (Meniti Karir Sebagai Software Delevopment)</li>
+                    <li>• Dicoding (Belajar Dasar Pemrograman Web)</li>
+                    <li>• Dicoding (Belajar Dasar Pemrograman Javascript)</li>
+                    <li>• Dicoding (Belajar Membuat Front-End Web untuk Pemula)</li>
+                    <li>• Dicoding (Pengenalan Logika Pemrograman Logic 101)</li>
+                </ul>
+            </div>
+
+            <div class="work-entry" style="border-left: 4px solid var(--accent-color);">
+                <h3>Cyber Security & Cloud</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>• Cisco (Introduction to Cybersecurity)</li>
+                    <li>• Digitalent (Introduction to Cyber Security and Career Awareness)</li>
+                    <li>• Digitalent (Dasar-dasar Keamanan Siber Untuk Pemula)</li>
+                    <li>• Digitalent (Ethical Hacker For Dummies)</li>
+                    <li>• Digitalent (Introduction To Cloud Computing)</li>
+                </ul>
+            </div>
+            
+            <div class="work-entry" style="border-left: 4px solid var(--accent-color);">
+                <h3>Data Science & Graphic Design</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>• DQLab (Data Science)</li>
+                    <li>• Hello motion academy (Design Info Grafis)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <p><strong>Kontak:</strong> +6281315869727 | <a href="mailto:ipanbasten11@gmail.com">ipanbasten11@gmail.com</a> | <a href="https://www.linkedin.com/in/ipanbasten/" target="_blank">LinkedIn</a></p>
+            <p style="margin-top: 15px;">&copy; 2025 Ipan Basten - IT Support Analyst Portfolio</p>
+    </footer>
+
+</body>
+</html>
